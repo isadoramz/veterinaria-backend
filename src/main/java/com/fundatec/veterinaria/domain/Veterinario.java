@@ -15,7 +15,7 @@ public class Veterinario implements Serializable {
     private String nome;
 
 
-    @Column(name = "CPF")
+    @Column(name = "CPF", unique = true)
     private String cpf;
 
     @OneToMany(
@@ -26,7 +26,8 @@ public class Veterinario implements Serializable {
     )
     private List<Cachorro> cachorros;
 
-    public Veterinario() {}
+    public Veterinario() {
+    }
 
     public Veterinario(String nome, String cpf) {
         this.nome = nome;

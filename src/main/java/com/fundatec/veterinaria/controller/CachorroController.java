@@ -35,12 +35,6 @@ public class CachorroController {
         }
     }
 
-    //@GetMapping
-    //public ResponseEntity<List<Cachorro>> findAll() {
-     //   List<Cachorro> resultado = cachorroRepository.findAll();
-   //     return new ResponseEntity<>(resultado, HttpStatus.OK);
-  //  }
-
     @GetMapping
     public ResponseEntity<List<Cachorro>> findAllByNome(@RequestParam(value = "nome", required = false) String nome) {
         List<Cachorro> resultado;
@@ -60,6 +54,9 @@ public class CachorroController {
 
         return new ResponseEntity(resultado, HttpStatus.OK);
     }
+
+
+
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity salvaCachorro(@RequestBody Cachorro cachorro) {

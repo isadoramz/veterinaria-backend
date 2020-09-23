@@ -26,7 +26,7 @@ public class Cachorro {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "veterinarioId")
+    @JoinColumn(name = "veterinario_id")
     private Veterinario veterinario;
 
 

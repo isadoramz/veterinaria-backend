@@ -1,5 +1,6 @@
 package com.fundatec.veterinaria.controller;
 
+import com.fundatec.veterinaria.domain.Cachorro;
 import com.fundatec.veterinaria.domain.Veterinario;
 import com.fundatec.veterinaria.repository.VeterinarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +31,16 @@ public class VeterinarioController {
         }
     }
 
-    //@GetMapping
-    //public ResponseEntity<List<Veterinario>> findAll() {
-   //     List<Veterinario> resultado = veterinarioRepository.findAll();
-  //      return new ResponseEntity<>(resultado, HttpStatus.OK);
-   // }
+    @GetMapping("{id}/cachorros")
+    public ResponseEntity<List<Cachorro>> findAllCachorros(@PathVariable("id") Long id) {
+      List<Cachorro> resultado = veterinarioRepository.findCachorrosById(id);
+      if(!resultado.isEmpty()) {
+          return new ResponseEntity<>(resultado, HttpStatus.OK);
+      } else {
+          return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      }
+    }
+
 
     @GetMapping
     public ResponseEntity<List<Veterinario>> findAllByNome(@RequestParam(value = "nome", required = false) String nome) {
