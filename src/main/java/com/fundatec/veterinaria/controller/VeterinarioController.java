@@ -41,7 +41,6 @@ public class VeterinarioController {
       }
     }
 
-
     @GetMapping
     public ResponseEntity<List<Veterinario>> findAllByNome(@RequestParam(value = "nome", required = false) String nome) {
         List<Veterinario> resultado;
