@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/cachorros")
 public class CachorroController {
@@ -54,9 +55,6 @@ public class CachorroController {
 
         return new ResponseEntity(resultado, HttpStatus.OK);
     }
-
-
-
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity salvaCachorro(@RequestBody Cachorro cachorro) {
